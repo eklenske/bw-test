@@ -5,9 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: conda-incubator/setup-miniconda@v2
         with:
-          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: '3.9' # optional, default is 3.x
-          # Used to specify a package manager for caching in the default directory. Supported values: pip, pipenv.
+          activate-environment: bodywork
+          environment-file: environment.yml
+          python-version: 3.9
+          auto-activate-base: false
       - run: python run_all.py
