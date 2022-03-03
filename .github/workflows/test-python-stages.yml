@@ -10,5 +10,6 @@ jobs:
           activate-environment: bodywork
           environment-file: environment.yml
           python-version: 3.9
+          channels: conda-forge
           auto-activate-base: false
       - run: python run_all.py
