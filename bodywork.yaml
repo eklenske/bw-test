@@ -2,7 +2,7 @@ version: "1.0"
 project:
   name: bw-test
   docker_image: bodyworkml/bodywork-core:3.0.0rc2
-  DAG: stage_1 >> stage_2
+  DAG: stage_1 >> stage_2 >> stage_3
   usage_stats: false
 stages:
   stage_1:
@@ -22,5 +22,16 @@ stages:
       retries: 2
     requirements:
        - requests
+  stage_3:
+    executable_module_path: stage_three/main.py
+    cpu_request: 0.1
+    memory_request_mb: 100
+    service:
+      max_startup_time_seconds: 15
+      replicas: 2
+      port: 5000
+      ingress: true
+    requirements:
+      - flask
 logging:
   log_level: DEBUG
