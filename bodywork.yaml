@@ -13,11 +13,6 @@ stages:
     batch:
       max_completion_time_seconds: 30
       retries: 2
-    secrets:
-      HTTP_PROXY: proxy-setup
-      HTTPS_PROXY: proxy-setup
-      http_proxy: proxy-setup
-      https_proxy: proxy-setup
   stage_2:
     executable_module_path: stage_two/main.py
     cpu_request: 0.1
@@ -26,11 +21,6 @@ stages:
       max_completion_time_seconds: 30
       retries: 2
     requirements:
-       - requests==2.24.0
-    secrets:
-      HTTP_PROXY: proxy-setup
-      HTTPS_PROXY: proxy-setup
-      http_proxy: proxy-setup
-      https_proxy: proxy-setup
+       - requests
 logging:
   log_level: DEBUG

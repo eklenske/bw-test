@@ -5,8 +5,9 @@ import requests
 
 
 def main() -> None:
-    response = requests.get('http://www.klenske.net')
+    response = requests.get("http://www.klenske.net")
     print(response.text)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
