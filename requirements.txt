@@ -1,6 +1,4 @@
-black
 bodywork
 flask
-isort
 mock
 requests
