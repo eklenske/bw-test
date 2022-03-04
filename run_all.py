@@ -6,8 +6,11 @@ NOTE: This file is maintained manually. If you add or remove stages, you'll have
 to update this file to reflect your changes.
 """
 
-import mock
+import multiprocessing
 import runpy
+import time
+
+import mock
 
 if __name__ == "__main__":
 
@@ -20,5 +23,17 @@ if __name__ == "__main__":
         except SystemExit:
             pass
 
+    # The second stage is pretty boring, nothing fancy except for mocking __name__ to __main__.
     runpy.run_module("stage_two.main", run_name="__main__")
-    runpy.run_module("stage_three.main", run_name="__main__")
+
+    # The third stage spawns a server process. We want this to start (so that all code is run),
+    # but after some time we need this to terminate, so that it doesn't block GitHub Actions.
+    proc = multiprocessing.Process(
+        target=runpy.run_module, args=["stage_three.main"], kwargs={"run_name": "__main__"}
+    )
+    proc.start()
+    time.sleep(5)
+    proc.terminate()
+    time.sleep(5)
+    if proc.is_alive():
+        proc.kill()

@@ -1,7 +1,7 @@
 """
 This module defines what will happen in stage_3.
 """
-from flask import Flask, make_response, jsonify
+from flask import Flask, jsonify, make_response
 
 app = Flask(__name__)
 
