@@ -5,7 +5,7 @@ import requests
 
 
 def main() -> None:
-    response = requests.get("http://www.klenske.net")
+    response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
     print(response.text)
 
 
