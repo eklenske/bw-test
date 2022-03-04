@@ -1,0 +1,13 @@
+name: test-python-code
+on: [push]
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: bodywork
+          environment-file: environment.yaml
+          auto-activate-base: false
+      - run: python run_all.py
