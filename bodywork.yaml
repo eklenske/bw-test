@@ -29,7 +29,7 @@ stages:
     service:
       max_startup_time_seconds: 15
       replicas: 2
-      port: 5000
+      port: 6000
       ingress: true
     requirements:
       - flask
