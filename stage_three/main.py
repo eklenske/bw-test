@@ -9,12 +9,7 @@ app = Flask(__name__)
 
 @app.route("/api/v1/evaluate", methods=["GET", "POST"])
 def evaluate():
-    getLogs()
     return make_response(jsonify({"value": 3.1415926535}))
-
-def getLogs():
-    df = pd.load_csv('data/logs.csv')
-    print(df)
 
 
 if __name__ == "__main__":

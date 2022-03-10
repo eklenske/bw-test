@@ -1,20 +1,20 @@
 """
 This module defines what will happen in stage_2.
 """
+from datetime import datetime
 import requests
 import pandas as pd
-from datetime import datetime
+
 
 
 def main() -> None:
     response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
     print(response.text)
 
-    
-    dt = datetime.now()
-    df = pd.DataFrame({'time': [dt],
+    timestamp = datetime.now()
+    log_df = pd.DataFrame({'time': [timestamp],
                    'action': ['Run Stage 2']})
-    df.to_csv('data/logs.csv', mode='a', index=False, header=False)
+    log_df.to_csv('data/logs.csv', mode='a', index=False, header=False)
 
 
 if __name__ == "__main__":
