@@ -2,7 +2,6 @@
 This module defines what will happen in stage_3.
 """
 from flask import Flask, jsonify, make_response
-import pandas as pd
 
 app = Flask(__name__)
 
