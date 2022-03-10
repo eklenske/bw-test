@@ -22,6 +22,8 @@ stages:
       retries: 2
     requirements:
        - requests
+       - pandas
+       - datetime
   stage_3:
     executable_module_path: stage_three/main.py
     cpu_request: 0.1
@@ -33,5 +35,6 @@ stages:
       ingress: true
     requirements:
       - flask
+      - pandas
 logging:
   log_level: DEBUG
