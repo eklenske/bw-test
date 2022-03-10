@@ -1,6 +1,6 @@
 version: "1.1"
 pipeline:
-  name: bw-test
+  name: bw-test-data
   docker_image: bodyworkml/bodywork-core:latest
   DAG: stage_1 >> stage_2 >> stage_3
   usage_stats: false
@@ -29,7 +29,7 @@ stages:
     service:
       max_startup_time_seconds: 15
       replicas: 2
-      port: 5000
+      port: 6000
       ingress: true
     requirements:
       - flask
