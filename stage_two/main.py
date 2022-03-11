@@ -18,8 +18,11 @@ def main() -> None:
     curr_dir = os.getcwd()
     print(curr_dir)
     timestamp = datetime.now()
-    log_df = pd.read_csv('data/logs.csv')
-    print(log_df)
+    try:
+        log_df = pd.read_csv('data/logs.csv')
+        print(log_df)
+    except Exception:
+        print("Error while loading CSV")
     print(timestamp)
 
 
