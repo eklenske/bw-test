@@ -19,7 +19,7 @@ def main() -> None:
     print(curr_dir)
     timestamp = datetime.now()
     try:
-        log_df = pd.read_csv('data/logs.csv')
+        log_df = pd.read_csv('../data/logs.csv')
         print(log_df)
     except Exception:
         print("Error while loading CSV")
