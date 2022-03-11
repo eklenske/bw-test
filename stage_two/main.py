@@ -9,10 +9,13 @@ import os
 
 
 def main() -> None:
+    """
+    Dummy function to print to a csv file
+    """
     response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
     print(response.text)
-    CURR_DIR = os.getcwd()
-    print(CURR_DIR)
+    curr_dir = os.getcwd()
+    print(curr_dir)
     timestamp = datetime.now()
     log_df = pd.DataFrame({'time': [timestamp],
                    'action': ['Run Stage 2']})
