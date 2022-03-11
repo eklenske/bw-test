@@ -18,9 +18,9 @@ def main() -> None:
     curr_dir = os.getcwd()
     print(curr_dir)
     timestamp = datetime.now()
-    log_df = pd.DataFrame({'time': [timestamp],
-                   'action': ['Run Stage 2']})
-    #log_df.to_csv('data/logs.csv', mode='a', index=False, header=False)
+    log_df = pd.read_csv('../data/logs.csv')
+    print(log_df)
+    print(timestamp)
 
 
 if __name__ == "__main__":
